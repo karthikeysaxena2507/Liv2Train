@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_cc14d89270dc6a9
+    username: b6154582afd51a
+    password: 0f385f34
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9000
