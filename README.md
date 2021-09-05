@@ -23,3 +23,9 @@ Build the maven project:
 Run the Spring Boot Application:
 
     mvn spring-boot:run
+    
+## How to run locally in a docker container
+
+    docker run -d -p 9000:9000 --name Liv2Train karthikeysaxena/liv2train:latest
+
+
