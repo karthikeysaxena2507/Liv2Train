@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
+/**
+ * A Rest Controller for the Training Centers
+ */
 @Slf4j
 @RestController
 @RequestMapping("/trainingCenters")

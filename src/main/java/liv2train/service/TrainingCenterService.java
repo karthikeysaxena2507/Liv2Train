@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Service class for training center endpoints, containing the business logic
+ */
 @Service
 @Slf4j
 public class TrainingCenterService {
@@ -22,20 +25,36 @@ public class TrainingCenterService {
         this.trainingCenterRepository = trainingCenterRepository;
     }
 
-    public TrainingCenter createTrainingCenter(TrainingCenter input) {
-        TrainingCenter trainingCenter = new TrainingCenter(
+    /**
+     * Function to create a new training center
+     * @param trainingCenter contains the details passed in the request
+     * @return the newly created training center
+     */
+    public TrainingCenter createTrainingCenter(TrainingCenter trainingCenter) {
+        TrainingCenter newTrainingCenter = new TrainingCenter(
                 generateCenterCode(),
-                input.getCenterName(),
-                input.getAddress(),
-                input.getStudentCapacity(),
-                input.getCourses(),
-                input.getContactEmail(),
-                input.getContactPhone(),
+                trainingCenter.getCenterName(),
+                trainingCenter.getAddress(),
+                trainingCenter.getStudentCapacity(),
+                trainingCenter.getCourses(),
+                trainingCenter.getContactEmail(),
+                trainingCenter.getContactPhone(),
                 new Date()
         );
-        return trainingCenterRepository.save(trainingCenter);
+        return trainingCenterRepository.save(newTrainingCenter);
     }
 
+    /**
+     * Method to get the training centers based on the filters passed
+     * via request params
+     * @param centerCode the center code (PK) of the training center
+     * @param centerName the name of the center
+     * @param city city in which the center is present
+     * @param state  state in which the center is present
+     * @param pinCode pinCode of the center area
+     * @param course particular course offered by any center
+     * @return list of training centers
+     */
     public List<TrainingCenter> getTrainingCenters(
             String centerCode,
             String centerName,
@@ -84,12 +103,21 @@ public class TrainingCenterService {
         return trainingCenters;
     }
 
+    /**
+     * Method to get training center details from the center code
+     * @param centerCode the center code
+     * @return traning center
+     */
     public TrainingCenter getTrainingCenterByCenterCode(String centerCode) {
         return trainingCenterRepository
                 .findById(centerCode)
                 .orElse(null);
     }
 
+    /**
+     * Function to create a unique 12 character alphanumeric string (center code)
+     * @return the 12 character string
+     */
     public String generateCenterCode() {
         String uuid;
         while (true) {

@@ -11,6 +11,9 @@ import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Defining an entity for the Training Centers
+ */
 @Entity
 @Table(name = "TrainingCenters")
 @Data

@@ -9,6 +9,9 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * A general Address model which can be embedded in other database entities
+ */
 @Embeddable
 @Data
 @NoArgsConstructor
