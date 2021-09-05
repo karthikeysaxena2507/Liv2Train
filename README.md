@@ -28,4 +28,9 @@ Run the Spring Boot Application:
 
     docker run -d -p 9000:9000 --name Liv2Train karthikeysaxena/liv2train:latest
 
+## Deployment
+
+The backend service is also deployed on Heroku at: https://liv2train.herokuapp.com/
+
+To get the list of all training centers, visit https://liv2train.herokuapp.com/trainingCenters
 
